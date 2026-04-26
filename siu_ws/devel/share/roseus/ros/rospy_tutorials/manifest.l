@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/rospy_tutorials/share/roseus/ros/rospy_tutorials/manifest.l

@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/rospy_tutorials/share/gennodejs/ros/rospy_tutorials/msg/HeaderString.js

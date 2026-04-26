@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/rospy_tutorials/share/common-lisp/ros/rospy_tutorials/msg/_package_HeaderString.lisp

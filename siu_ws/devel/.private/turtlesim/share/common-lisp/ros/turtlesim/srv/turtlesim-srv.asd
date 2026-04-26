@@ -1,0 +1,31 @@
+
+(cl:in-package :asdf)
+
+(defsystem "turtlesim-srv"
+  :depends-on (:roslisp-msg-protocol :roslisp-utils :sensor_msgs-msg
+               :turtlesim-msg
+)
+  :components ((:file "_package")
+    (:file "GetCameraImage" :depends-on ("_package_GetCameraImage"))
+    (:file "_package_GetCameraImage" :depends-on ("_package"))
+    (:file "GetFrameSize" :depends-on ("_package_GetFrameSize"))
+    (:file "_package_GetFrameSize" :depends-on ("_package"))
+    (:file "GetPose" :depends-on ("_package_GetPose"))
+    (:file "_package_GetPose" :depends-on ("_package"))
+    (:file "GetSonar" :depends-on ("_package_GetSonar"))
+    (:file "_package_GetSonar" :depends-on ("_package"))
+    (:file "GetTurtles" :depends-on ("_package_GetTurtles"))
+    (:file "_package_GetTurtles" :depends-on ("_package"))
+    (:file "HasTurtle" :depends-on ("_package_HasTurtle"))
+    (:file "_package_HasTurtle" :depends-on ("_package"))
+    (:file "Kill" :depends-on ("_package_Kill"))
+    (:file "_package_Kill" :depends-on ("_package"))
+    (:file "SetPen" :depends-on ("_package_SetPen"))
+    (:file "_package_SetPen" :depends-on ("_package"))
+    (:file "Spawn" :depends-on ("_package_Spawn"))
+    (:file "_package_Spawn" :depends-on ("_package"))
+    (:file "TeleportAbsolute" :depends-on ("_package_TeleportAbsolute"))
+    (:file "_package_TeleportAbsolute" :depends-on ("_package"))
+    (:file "TeleportRelative" :depends-on ("_package_TeleportRelative"))
+    (:file "_package_TeleportRelative" :depends-on ("_package"))
+  ))

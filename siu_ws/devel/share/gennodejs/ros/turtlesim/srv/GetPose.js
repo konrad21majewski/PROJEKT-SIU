@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/turtlesim/share/gennodejs/ros/turtlesim/srv/GetPose.js

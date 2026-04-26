@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/turtlesim/include/turtlesim/Color.h

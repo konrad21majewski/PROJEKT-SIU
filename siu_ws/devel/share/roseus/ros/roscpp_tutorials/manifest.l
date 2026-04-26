@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/roscpp_tutorials/share/roseus/ros/roscpp_tutorials/manifest.l

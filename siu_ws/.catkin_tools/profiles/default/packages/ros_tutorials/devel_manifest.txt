@@ -1,0 +1,2 @@
+ros_tutorials/ros_tutorials
+/root/siu_ws/devel/.private/ros_tutorials/cmake.lock /root/siu_ws/devel/./cmake.lock

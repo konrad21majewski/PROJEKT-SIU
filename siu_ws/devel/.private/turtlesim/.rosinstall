@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /root/siu_ws/devel/.private/turtlesim/setup.sh

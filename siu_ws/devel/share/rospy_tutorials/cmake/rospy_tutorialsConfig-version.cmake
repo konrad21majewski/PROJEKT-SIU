@@ -1,0 +1,1 @@
+/root/siu_ws/devel/.private/rospy_tutorials/share/rospy_tutorials/cmake/rospy_tutorialsConfig-version.cmake
