@@ -28,10 +28,12 @@ class TurtlesimEnvSingle(TurtlesimEnvBase):
             # skręcić
             twist.linear.x = 0
             twist.angular.z = action[1]
+            self.tapi.setVel(tname, twist)
             rospy.sleep(self.WAIT_AFTER_MOVE)
             # przejechać pozostałą 1/2
             twist.linear.x = action[0]
             twist.angular.z = 0
+            self.tapi.setVel(tname, twist)
             rospy.sleep(self.SEC_PER_STEP/2)
             # zastopuj żółwia
             twist_stop = Twist()
