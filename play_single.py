@@ -2,6 +2,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 import turtlesim_env_single
 from dqn_single import DqnSingle
+
 env=turtlesim_env_single.provide_env()                  # sfabrykowanie środowiska
 env.setup('routes.csv',agent_cnt=1)                     # wczytanie tras i zarezerwowanie 1 agenta
 agents=env.reset()                                      # utworzenie i umiejscowienie agenta
