@@ -20,10 +20,20 @@ class TurtlesimEnvSingle(TurtlesimEnvBase):
         # TODO STUDENCI przejechać 1/2 okresu, skręcić, przejechać pozostałą 1/2
         if realtime:                                    # jazda+skręt+jazda+skręt
             twist = Twist()
+            # przejechać 1/2 okresu
             twist.linear.x = action[0]
-            twist.angular.z = action[1]
+            twist.angular.z = 0
             self.tapi.setVel(tname, twist)
-            rospy.sleep(self.SEC_PER_STEP)
+            rospy.sleep(self.SEC_PER_STEP/2)
+            # skręcić
+            twist.linear.x = 0
+            twist.angular.z = action[1]
+            rospy.sleep(self.WAIT_AFTER_MOVE)
+            # przejechać pozostałą 1/2
+            twist.linear.x = action[0]
+            twist.angular.z = 0
+            rospy.sleep(self.SEC_PER_STEP/2)
+            # zastopuj żółwia
             twist_stop = Twist()
             self.tapi.setVel(tname, twist_stop)
             rospy.sleep(self.WAIT_AFTER_MOVE)
