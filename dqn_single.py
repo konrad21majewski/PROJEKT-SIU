@@ -69,7 +69,7 @@ class DqnSingle():
         self.model.add(Permute((1,2,4,3)))
         self.model.add(Conv3D(filters=2*M,kernel_size=(2,2,2*M),activation='relu'))
         self.model.add(Flatten())
-        self.model.add(Dense(64,activation='relu')) #było 32
+        self.model.add(Dense(32,activation='relu'))
         self.model.add(Dense(self.CTL_DIM,activation="linear"))                     # wyjście Q dla każdej z CTL_DIM decyzji
         self.model.compile(loss='mse',optimizer=keras.optimizers.Adam(learning_rate=0.001),metrics=["accuracy"])
     # uczenie od podstaw: generuj kroki, gromadź pomiary, ucz na próbce losowej, okresowo aktualizuj model pomocniczy
@@ -150,15 +150,9 @@ class DqnSingle():
 if __name__ == "__main__":
     env=turtlesim_env_single.provide_env()                      # utworzenie środowiska
     env.setup('routes.csv',agent_cnt=1)                         # połączenie z symulatorem
-    env.SPEED_FINE_RATE = -5.0                                  # zmiana wybranych parametrów środowiska
-    env.DIST_RWRD_RATE = 3.0          # więcej nagrody za zbliżanie do celu (było 2.0)
-    env.OUT_OF_TRACK_FINE = -20       # większa kara za wypadnięcie (było -10)
-    env.MAX_STEPS = 40                # więcej kroków na epizod (było 20)
     agents=env.reset()                                          # ustawienie agenta
     tname=list(agents.keys())[0]                                # 'lista agentów' do wytrenowania
     dqns=DqnSingle(env)                                         # utworzenie klasy uczącej
-    dqns.DISCOUNT = 0.95              # większe dyskonto (było 0.9)
-    dqns.EPS_DECAY = 0.995            # wolniejszy spadek epsilon (było 0.99)
     dqns.make_model()                                           # skonstruowanie sieci neuronowej
     # dqns.model=load_model('test.h5')                          # albo załadowanie zapisanej wcześniej
     dqns.train_main(tname,save_model=True)                      # wywołanie uczenia
