@@ -5,14 +5,11 @@ Wybrane zostały dwa parametry klas środowiska, trzy uczącej oraz jeden parame
 * DISCOUNT: sprawdzono wartości 0.7 oraz 0.8
 * TRAIN_EVERY: sprawdzono wartości 2.0 oraz 6.0
 * UPDATE_TARGET_EVERY: sprawdzono wartości 10 oraz 30
-* ??? DENSE ???: 64 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
+* Zmiana szerokości warstwy Dense na 64 vs Dodanie drugiej warstwy Dense(32)
 
-Eksperymenty polegały na wyuczeniu modelu sieci neuronowej przy domyślnych wartościach i dokładnie jednej zmienionej wartości parametru - oprócz zmiany parametru sieci neuronowej. Następnie wybrano wartości dla każdeo parametru, dla których tak wyuczony model sieci osiągnął ,,najlepszy" wynik. Na koniec wyuczono sieć neuronową ze zmienionym parametrem sieci i wybranymi wcześniej ,,najlepszymi" wartościami dla pozostałych parametrów.
+Eksperymenty polegały na wielokrotnej nauce modelu sieci neuronowej przez 4000 epok, przy zmianie jednego parametru dla klas środowiska i uczącej, oraz zachowaniu wartości domyślnych przy pozostałych. Sprawdzono, jak modele na róznych etapach treningu radzą sobie z pokonywaniem wyznaczonej trasy, co było oceniane przez porównanie iloczynu liczby okrążeń, składającej się z liczby poszczególnych segmentów trasy, które odało się pokonać modelowi oraz liczby prób, które podjął, gdzie próba kończyła się w momencie wyjechania poza jezdnię. Następnie wybrano te wartości każdego parametru, dla których model osiągnął najlepszy wynik i użyto ich przy nauce modelu ze zmienionymi parametrami sieci neuronowej. 
 
-Tak uproszczony model przeprowadzenia eksperymentów wybraliśmy ze względu na długość procesu pojedynczego uczenia z pojedynczym zestawem parametrów i problemy z OOM podczas testów.
-
-# WYNIKI
-[TODO: CO OZNACZAJĄ LICZBA OKRĄŻEŃ I LICZBA PRÓB? JAK WYBRALIŚMY NAJLEPSZE WYNIKI?]
+Taki model przeprowadzenia eksperymentów został wybrany ze względu na długość procesu pojedynczego uczenia oraz problemy z OOM podczas testów, co uniemożliwiło wykonanie prawidłowego procesu grid search parametrów.
 
 ## DOMYŚLNY ZESTAW PARAMETRÓW
 Domyślnymi wartościami dla wybranych parametrów były:
@@ -20,7 +17,7 @@ Domyślnymi wartościami dla wybranych parametrów były:
 * DIST_RWRD_RATE: 2.0
 * DISCOUNT: 0.9
 * TRAIN_EVERY: 4
-* ??? DENSE ???: 32 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
+* DENSE(32)
 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
