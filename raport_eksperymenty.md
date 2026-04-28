@@ -1,9 +1,10 @@
 # OPIS EKSPERYMENTÓW
-Wybrane zostały po dwa parametry klas środowiska oraz uczącej oraz jeden parametr sieci neuronowej, dla których wybrano wartości do przetestowania i porównania:
+Wybrane zostały dwa parametry klas środowiska, trzy uczącej oraz jeden parametr sieci neuronowej, dla których wybrano wartości do przetestowania i porównania:
 * SPEED_RWRD_RATE: sprawdzono wartości 0.1 oraz 0.3
 * DIST_RWRD_RATE: sprawdzono wartości 1.0 oraz 1.5
 * DISCOUNT: sprawdzono wartości 0.7 oraz 0.8
 * TRAIN_EVERY: sprawdzono wartości 2.0 oraz 6.0
+* UPDATE_TARGET_EVERY: sprawdzono wartości 10 oraz 30
 * ??? DENSE ???: 64 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
 
 Eksperymenty polegały na wyuczeniu modelu sieci neuronowej przy domyślnych wartościach i dokładnie jednej zmienionej wartości parametru - oprócz zmiany parametru sieci neuronowej. Następnie wybrano wartości dla każdeo parametru, dla których tak wyuczony model sieci osiągnął ,,najlepszy" wynik. Na koniec wyuczono sieć neuronową ze zmienionym parametrem sieci i wybranymi wcześniej ,,najlepszymi" wartościami dla pozostałych parametrów.
@@ -77,12 +78,12 @@ Dla DISCOUNT = 0.7
 
 ## TRAIN_EVERY
 
-Dla TRAIN_EVERY = 2 [TODO: UZUPEŁNIĆ TABELKĘ]
+Dla TRAIN_EVERY = 2
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | E1750 | 0.40 | 2.375 | 6 |
+| 2 | E2500 | 0.27 | 2.125 | 8 |
+| 3 | E1250 | 0.26 | 2.375 | 9 |
 
 Dla TRAIN_EVERY = 6
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
@@ -91,12 +92,29 @@ Dla TRAIN_EVERY = 6
 | 2 | E1750 | 0.62 | 2.5 | 4 |
 | 3 | E1250 | 0.41 | 2.875 | 7 |
 
+## UPDATE_TARGET_EVERY
+
+Dla UPDATE_TARGET_EVERY = 10 [TODO: UZUPEŁNIĆ]
+| MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
+|----------|----------|----------|----------|----------|
+| 1 |  |  |  |  |
+| 2 |  |  |  |  |
+| 3 |  |  |  |  |
+
+Dla UPDATE_TARGET_EVERY = 30 [TODO: UZUPEŁNIĆ]
+| MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
+|----------|----------|----------|----------|----------|
+| 1 |  |  |  |  |
+| 2 |  |  |  |  |
+| 3 |  |  |  |  |
+
 ## OSTATECZNY ZESTAW PARAMETRÓW
 Model został wyuczony przy poniższych zmienionych wartościach parametrów. Pozostałe były ustawione na domyślne wartości.
 * SPEED_RWRD_RATE: 0.1
 * DIST_RWRD_RATE: 1.5
 * DISCOUNT: 0.7
-* TRAIN_EVERY: ??? [TODO: UZUPEŁNIĆ]
+* TRAIN_EVERY: default
+* UPDATE_TARGET_EVERY: [TODO: UZUPEŁNIĆ]
 * ??? DENSE ???: 64 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
 
 [TODO: UZUPEŁNIĆ TABELKĘ]
