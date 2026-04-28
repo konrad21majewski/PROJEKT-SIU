@@ -84,12 +84,12 @@ Dla TRAIN_EVERY = 2 [TODO: UZUPEŁNIĆ TABELKĘ]
 | 2 | | | | |
 | 3 | | | | |
 
-Dla TRAIN_EVERY = 6 [TODO: UZUPEŁNIĆ TABELKĘ]
+Dla TRAIN_EVERY = 6
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | E750 | 1.00 | 2.0 | 2 |
+| 2 | E1750 | 0.62 | 2.5 | 4 |
+| 3 | E1250 | 0.41 | 2.875 | 7 |
 
 ## OSTATECZNY ZESTAW PARAMETRÓW
 Model został wyuczony przy poniższych zmienionych wartościach parametrów. Pozostałe były ustawione na domyślne wartości.
