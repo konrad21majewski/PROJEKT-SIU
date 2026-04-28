@@ -96,7 +96,7 @@ Model został wyuczony przy poniższych zmienionych wartościach parametrów. Po
 * SPEED_RWRD_RATE: 0.1
 * DIST_RWRD_RATE: 1.5
 * DISCOUNT: 0.7
-* TRAIN_EVERY: ???
+* TRAIN_EVERY: ??? [TODO: UZUPEŁNIĆ]
 * ??? DENSE ???: 64 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
 
 [TODO: UZUPEŁNIĆ TABELKĘ]
