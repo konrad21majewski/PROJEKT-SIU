@@ -5,7 +5,7 @@ Wybrane zostały dwa parametry klas środowiska, trzy uczącej oraz jeden parame
 * DISCOUNT: sprawdzono wartości 0.7 oraz 0.8
 * TRAIN_EVERY: sprawdzono wartości 2.0 oraz 6.0
 * UPDATE_TARGET_EVERY: sprawdzono wartości 10 oraz 30
-* Zmiana szerokości warstwy Dense na 64 vs Dodanie drugiej warstwy Dense(32)
+* STRUKTURA SIECI: sprawdzono zmianę szerokości warstwy Dense na 64 oraz dodanie drugiej warstwy Dense(32)
 
 Eksperymenty polegały na wielokrotnej nauce modelu sieci neuronowej przez 4000 epok, przy zmianie jednego parametru dla klas środowiska i uczącej, oraz zachowaniu wartości domyślnych przy pozostałych. Sprawdzono, jak modele na różnych etapach treningu radzą sobie z pokonywaniem wyznaczonej trasy, co było oceniane przez porównanie ilorazu liczby okrążeń, składającej się z liczby poszczególnych segmentów trasy, które odało się pokonać modelowi oraz liczby prób, które podjął, gdzie próba kończyła się w momencie wyjechania poza jezdnię. Następnie wybrano te wartości każdego parametru, dla których model osiągnął najlepszy wynik i użyto ich przy nauce modeli ze zmienionymi parametrami sieci neuronowej. Finalnie wybrano najlepszy spośród nich i zaprezentowano jako ostateczną wersję modelu.
 
@@ -94,16 +94,16 @@ Dla TRAIN_EVERY = 6
 Dla UPDATE_TARGET_EVERY = 10 [TODO: UZUPEŁNIĆ]
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
+| 1 | E3250 | 1.12 | 2.25 | 2 |
+| 2 | E500 | 0.53 | 2.125 | 4 |
+| 3 | E2250 | 0.50 | 2.0 | 4 |
 
 Dla UPDATE_TARGET_EVERY = 30 [TODO: UZUPEŁNIĆ]
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
+| 1 | E1500 | 0.45 | 2.25 | 5 |
+| 2 | E1250 | 0.42 | 2.125 | 5 |
+| 3 | E1750 | 0.39 | 2.75 | 7 |
 
 ## OSTATECZNY ZESTAW PARAMETRÓW
 Model został wyuczony przy poniższych zmienionych wartościach parametrów. Pozostałe były ustawione na domyślne wartości.
@@ -111,10 +111,18 @@ Model został wyuczony przy poniższych zmienionych wartościach parametrów. Po
 * DIST_RWRD_RATE: 1.5
 * DISCOUNT: 0.7
 * TRAIN_EVERY: default
-* UPDATE_TARGET_EVERY: [TODO: UZUPEŁNIĆ]
-* ??? DENSE ???: 64 [TODO: CO TU WPISAĆ? JAK TO NAZWAĆ? CO MY TU ZMIENIAMY W SUMIE?]
+* UPDATE_TARGET_EVERY: default
 
-[TODO: UZUPEŁNIĆ TABELKĘ]
+Następnie na powyższych wartościach sprawdzono wpływ zmiany w strukturze/parametrach modelu sieci:
+
+Dla zmiany szerokości warstwy Dense na 64 [TODO: UZUPEŁNIĆ TABELKĘ]
+| MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
+|----------|----------|----------|----------|----------|
+| 1 | | | | |
+| 2 | | | | |
+| 3 | | | | |
+
+Dla dodania drugiej warstwy Dense(32) [TODO: UZUPEŁNIĆ TABELKĘ]
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
 | 1 | | | | |
