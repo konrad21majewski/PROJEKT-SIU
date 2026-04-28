@@ -7,9 +7,9 @@ Wybrane zostały dwa parametry klas środowiska, trzy uczącej oraz jeden parame
 * UPDATE_TARGET_EVERY: sprawdzono wartości 10 oraz 30
 * Zmiana szerokości warstwy Dense na 64 vs Dodanie drugiej warstwy Dense(32)
 
-Eksperymenty polegały na wielokrotnej nauce modelu sieci neuronowej przez 4000 epok, przy zmianie jednego parametru dla klas środowiska i uczącej, oraz zachowaniu wartości domyślnych przy pozostałych. Sprawdzono, jak modele na róznych etapach treningu radzą sobie z pokonywaniem wyznaczonej trasy, co było oceniane przez porównanie iloczynu liczby okrążeń, składającej się z liczby poszczególnych segmentów trasy, które odało się pokonać modelowi oraz liczby prób, które podjął, gdzie próba kończyła się w momencie wyjechania poza jezdnię. Następnie wybrano te wartości każdego parametru, dla których model osiągnął najlepszy wynik i użyto ich przy nauce modelu ze zmienionymi parametrami sieci neuronowej. 
+Eksperymenty polegały na wielokrotnej nauce modelu sieci neuronowej przez 4000 epok, przy zmianie jednego parametru dla klas środowiska i uczącej, oraz zachowaniu wartości domyślnych przy pozostałych. Sprawdzono, jak modele na różnych etapach treningu radzą sobie z pokonywaniem wyznaczonej trasy, co było oceniane przez porównanie ilorazu liczby okrążeń, składającej się z liczby poszczególnych segmentów trasy, które odało się pokonać modelowi oraz liczby prób, które podjął, gdzie próba kończyła się w momencie wyjechania poza jezdnię. Następnie wybrano te wartości każdego parametru, dla których model osiągnął najlepszy wynik i użyto ich przy nauce modeli ze zmienionymi parametrami sieci neuronowej. Finalnie wybrano najlepszy spośród nich i zaprezentowano jako ostateczną wersję modelu.
 
-Taki model przeprowadzenia eksperymentów został wybrany ze względu na długość procesu pojedynczego uczenia oraz problemy z OOM podczas testów, co uniemożliwiło wykonanie prawidłowego procesu grid search parametrów.
+Taki sposób przeprowadzenia eksperymentów został wybrany ze względu na długość procesu pojedynczego uczenia oraz problemy z OOM podczas testów, co uniemożliwiło wykonanie prawidłowego procesu grid search parametrów.
 
 ## DOMYŚLNY ZESTAW PARAMETRÓW
 Domyślnymi wartościami dla wybranych parametrów były:
