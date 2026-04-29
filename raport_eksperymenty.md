@@ -130,7 +130,7 @@ Dla dodania drugiej warstwy Dense(32)
 | 3 | E1000 | 0.42 | 2.125 | 5 |
 
 # NAJLEPSZY OSIĄGNIETY WYNIK
-Wbrew przewidywaniom, zmiany struktury sieci neuronowej nie osiągnęły lepszych wyników niż wersja bazowa. Z tego powodu jako finalny model wybrany został najlepszy model z DIST_RWRD_RATE = 1.5 i to on został przedstawiony w filmach poglądowych oraz to przebieg jego trasy został graficznie oznaczony na mapie.
+Wbrew przewidywaniom, zmiany struktury sieci neuronowej nie osiągnęły lepszych wyników niż wersja bazowa. Z tego powodu jako finalny model wybrany został najlepszy model z DIST_RWRD_RATE = 1.5 i to on został przedstawiony w filmach poglądowych oraz to przebieg jego trasy (trasa_modelu.png) został graficznie oznaczony na mapie.
 
 Pod poniższym linkiem znajduje się obraz dockera wraz ze wszystkimi wytrenowanymi modelami oraz skryptami:
 https://wutwaw-my.sharepoint.com/:u:/g/personal/01211476_pw_edu_pl/IQCQFf3u6YeLQpCSHc2ZURf8AcUAGwh5KAuakVfJW2kmjNg?e=KUhwTN
