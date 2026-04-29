@@ -17,6 +17,7 @@ Domyślnymi wartościami dla wybranych parametrów były:
 * DIST_RWRD_RATE: 2.0
 * DISCOUNT: 0.9
 * TRAIN_EVERY: 4
+* UPDATE_TARGET_EVER: 20
 * DENSE(32)
 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
