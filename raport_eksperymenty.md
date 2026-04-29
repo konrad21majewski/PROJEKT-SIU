@@ -91,14 +91,14 @@ Dla TRAIN_EVERY = 6
 
 ## UPDATE_TARGET_EVERY
 
-Dla UPDATE_TARGET_EVERY = 10 [TODO: UZUPEŁNIĆ]
+Dla UPDATE_TARGET_EVERY = 10 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
 | 1 | E3250 | 1.12 | 2.25 | 2 |
 | 2 | E500 | 0.53 | 2.125 | 4 |
 | 3 | E2250 | 0.50 | 2.0 | 4 |
 
-Dla UPDATE_TARGET_EVERY = 30 [TODO: UZUPEŁNIĆ]
+Dla UPDATE_TARGET_EVERY = 30 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
 | 1 | E1500 | 0.45 | 2.25 | 5 |
@@ -115,19 +115,31 @@ Model został wyuczony przy poniższych zmienionych wartościach parametrów. Po
 
 Następnie na powyższych wartościach sprawdzono wpływ zmiany w strukturze/parametrach modelu sieci:
 
-Dla zmiany szerokości warstwy Dense na 64 [TODO: UZUPEŁNIĆ TABELKĘ]
+Dla zmiany szerokości warstwy Dense na 64 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | E3500 | 0.62 | 2.5 | 4 |
+| 2 | E1750 | 0.50 | 2.5 | 5 |
+| 3 | E1500 | 0.42 | 2.5 | 6 |
 
-Dla dodania drugiej warstwy Dense(32) [TODO: UZUPEŁNIĆ TABELKĘ]
+Dla dodania drugiej warstwy Dense(32) 
 | MIEJSCE | EPOCHS | η  | LICZBA OKRĄŻEŃ | LICZBA PRÓB |
 |----------|----------|----------|----------|----------|
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
+| 1 | E1250 | 0.58 | 1.75 | 3 |
+| 2 | E1750 | 0.50 | 2.0 | 4 |
+| 3 | E1000 | 0.42 | 2.125 | 5 |
 
 # NAJLEPSZY OSIĄGNIETY WYNIK
-Najlepszy wynik uzyskał [TODO: UZUPEŁNIĆ], osiągając wartość η równą [TODO: UZUPEŁNIĆ]
+Wbrew przewidywaniom, zmiany struktury sieci neuronowej nie osiągnęły lepszych wyników niż wersja bazowa. Z tego powodu jako finalny model wybrany został najlepszy model z DIST_RWRD_RATE = 1.5 i to on został przedstawiony w filmach poglądowych oraz to przebieg jego trasy został graficznie oznaczony na mapie.
+
+Pod poniższym linkiem znajduje się obraz dockera wraz ze wszystkimi wytrenowanymi modelami oraz skryptami:
+https://wutwaw-my.sharepoint.com/:u:/g/personal/01211476_pw_edu_pl/IQCQFf3u6YeLQpCSHc2ZURf8AcUAGwh5KAuakVfJW2kmjNg?e=KUhwTN
+
+Pod poniższym linkiem znajdują sie nagrania przebiegu modelu dla DIST_RWRD_RATE = 1.5:
+https://wutwaw-my.sharepoint.com/:u:/g/personal/01211476_pw_edu_pl/IQDzjiLF4IciSKQYV4EEPBTOAZOQfA1ZPEMdiY4mF_SNEM4?e=m6cOUf
+
+Lokalizacja modelu dla DIST_RWRD_RATE = 1.5 na dockerze:
+root/dqns-Gr5_Cr200_Sw0.5_Sv-10.0_Sf-10.0_Dr1.5_Oo-10_Cd1.5_Ms20_Pb6_D0.9_E0.99_e0.05_M20000_m4000_B32_U20_P4000_T4_ep2250.tf
+
+By uruchomić przebieg modelu dla DIST_RWRD_RATE = 1.5 należy wykonać polecenie w terminalu na dockerze:
+python3 run_final_single.py
