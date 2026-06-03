@@ -74,7 +74,7 @@ class DqnMulti(DqnSingle):
         episode_rewards[:len(self.env.agents)]=0                                        # inicjalizacja nagród za epizody
         episode=len(self.env.agents)-1                                                  # indeks ost. epizodu
         to_restart=set()                                                                # agenty do reaktywacji
-        while episode<self.EPISODES_MAX:                                                # ucz w epizodach treningowych
+        while episode<self.EPISODES_MAX-1:                                              # ucz w epizodach treningowych
             self.env.reset(to_restart,['random' for i in to_restart])                   # inicjalizacja wybranych
             for tname in to_restart:                                                    # odczytanie sytuacji
                 current_states[tname]=self.env.agents[tname].map                        # początkowa sytuacja
