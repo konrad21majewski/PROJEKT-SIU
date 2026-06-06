@@ -77,9 +77,11 @@ class DqnMulti(DqnSingle):
         while episode<self.EPISODES_MAX-1:                                              # ucz w epizodach treningowych
             self.env.reset(to_restart,['random' for i in to_restart])                   # inicjalizacja wybranych
             for tname in to_restart:                                                    # odczytanie sytuacji
+                if episode>=self.EPISODES_MAX-1:
+                    break
+                episode+=1                                                              # dla niego to nowy epizod
                 current_states[tname]=self.env.agents[tname].map                        # początkowa sytuacja
                 last_states[tname]=[i.copy() for i in current_states[tname]]            # zaczyna od postoju: poprz. stan taki jak obecny
-                episode+=1                                                              # dla niego to nowy epizod
                 episode_rewards[episode]=0                                              # inicjalizacja nagród w tym epizodzie
                 agent_episode[tname]=episode                                            # przypisanie agenta do epizodu
                 if (episode+1)%self.SAVE_MODEL_EVERY==0 and save_model:
@@ -126,8 +128,8 @@ if __name__ == "__main__":
     env=turtlesim_env_multi.provide_env()                   # utworzenie środowiska
     env.PI_BY=3                                             # zmiana wybranych parametrów środowiska
     prefix='X6-c20c20c20d64-M-lr001'                        # bazowy z kolizjami
-    env.DETECT_COLLISION=True
-    env.setup('routes.csv')                                 # połączenie z symulatorem
+    env.DETECT_COLLISION=False
+    env.setup('scenariusz.csv')                                 # połączenie z symulatorem
     agents=env.reset()                                      # ustawienie agenta
     dqnm=DqnMulti(env,id_prefix=prefix)                     # utworzenie klasy uczącej
     dqnm.make_model()                                       # skonstruowanie sieci neuronowej
