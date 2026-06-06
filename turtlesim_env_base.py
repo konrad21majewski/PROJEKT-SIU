@@ -32,6 +32,7 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
         self.DETECT_COLLISION = False   # tryb wykrywania kolizji przez środowisko
         self.MAX_STEPS = 20             # maksymalna liczba kroków agentów
         self.PI_BY = 6                  #*dzielnik zakresu pocz. odchylenia od azymutu żółwia na cel
+        self.SPAWN_MAX_ATTEMPTS = 100   # maksymalna liczba prób ulokowania agenta w reset()
         # aktualny stan środowiska symulacyjnego
         self.tapi=None                  # obiekt reprezentujący API symulatora
         self.px_meter_ratio=None        # skala planszy odczytana z symulatora
@@ -99,7 +100,8 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
             section=self.routes[agent.route][sec_id]        # przypisanie sekcji, w której się odrodzi
             agent.goal_loc=Pose(x=section[5],y=section[6])  # pierwszy cel
             # próba ulokowania agenta we wskazanym obszarze i jednocześnie na drodze (niezerowy wektor zalecanej prędkości)
-            while True:
+            placed = False
+            for attempt in range(self.SPAWN_MAX_ATTEMPTS):
                 x = np.random.uniform(section[1],section[2])
                 y = np.random.uniform(section[3],section[4])
                 # azymut początkowy dokładnie w kierunku celu
@@ -108,16 +110,22 @@ class TurtlesimEnvBase(metaclass=abc.ABCMeta):
                 self.tapi.setPose(tname,Pose(x=x,y=y,theta=theta),mode='absolute')
                 rospy.sleep(self.WAIT_AFTER_MOVE)               # odczekać UWAGA inaczej symulator nie zdąży przestawić żółwia
                 fx,fy,_,_,_,_ = self.get_road(tname)            # fx, fy \in <-1,1>
-                fo = self.get_map(tname)[6]
-                if self.DETECT_COLLISION and fo[self.GRID_RES//2,self.GRID_RES-1] == 0:
-                    continue             # wykrywanie kolizji na początku (GRID_RES-1) środkowego wiersza (GRID_RES//2) rastra
                 if abs(fx)+abs(fy)>.01:                         # w obrębie drogi
                     theta+=np.random.uniform(-np.pi/self.PI_BY,np.pi/self.PI_BY)    # kierunek ruchu zaburzony +- pi/PI_BY rad.
                     p = Pose(x=x,y=y,theta=theta)               # obrót żółwia
                     self.tapi.setPose(tname,p,mode='absolute')
                     agent.pose=p                                # zapamiętanie azymutu, lokalnie
                     rospy.sleep(self.WAIT_AFTER_MOVE)
+                    placed = True
                     break                                       # udana lokalizacja, koniec prób
+            if not placed:                                      # nie znaleziono drogi
+                x = (section[1] + section[2]) / 2
+                y = (section[3] + section[4]) / 2
+                theta = np.arctan2(agent.goal_loc.y - y, agent.goal_loc.x - x)
+                p = Pose(x=x, y=y, theta=theta)
+                self.tapi.setPose(tname, p, mode='absolute')
+                agent.pose = p
+                rospy.sleep(self.WAIT_AFTER_MOVE)
             agent.map = self.get_map(tname)                     # zapamiętanie otoczenia, lokalnie
             agent.section=sec_id                                # zapamiętanie sekcji, w której się odradza
         return self.agents
